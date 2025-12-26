@@ -34,6 +34,30 @@
         0%, 100% { transform: translateY(0); }
         50% { transform: translateY(-15px); }
       }
+      @keyframes float-delayed {
+        0%, 100% { transform: translateY(0) translateX(0); }
+        33% { transform: translateY(-20px) translateX(10px); }
+        66% { transform: translateY(-10px) translateX(-10px); }
+      }
+      @keyframes float-slow {
+        0%, 100% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-25px) scale(1.05); }
+      }
+      @keyframes drift-1 {
+        0%, 100% { transform: translate(0, 0); }
+        25% { transform: translate(30px, -20px); }
+        50% { transform: translate(-20px, -40px); }
+        75% { transform: translate(40px, -30px); }
+      }
+      @keyframes drift-2 {
+        0%, 100% { transform: translate(0, 0); }
+        33% { transform: translate(-30px, 20px); }
+        66% { transform: translate(25px, -15px); }
+      }
+      @keyframes drift-3 {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        50% { transform: translate(-35px, 25px) rotate(180deg); }
+      }
       @keyframes spin-slow {
         from { transform: translate(-50%, -50%) rotate(0deg); }
         to { transform: translate(-50%, -50%) rotate(360deg); }
@@ -47,6 +71,11 @@
         50% { transform: translateY(-8px); }
       }
       .animate-float { animation: float 6s ease-in-out infinite; }
+      .animate-float-delayed { animation: float-delayed 8s ease-in-out infinite; }
+      .animate-float-slow { animation: float-slow 10s ease-in-out infinite; }
+      .animate-drift-1 { animation: drift-1 15s ease-in-out infinite; }
+      .animate-drift-2 { animation: drift-2 12s ease-in-out infinite; }
+      .animate-drift-3 { animation: drift-3 18s ease-in-out infinite; }
       .animate-spin-slow { animation: spin-slow 20s linear infinite; }
       .animate-spin-reverse { animation: spin-reverse 25s linear infinite; }
       .animate-bounce-subtle { animation: bounce-subtle 4s ease-in-out infinite; }

@@ -94,7 +94,7 @@ export const PRODUCTS: Product[] = [
 export const UI_STRINGS: Translation = {
   companyName: {
     ar: 'مؤسسة عبدالله مهدر إبراهيم الليثي',
-    en: 'Abdullah Mehdar Ibrahim Al Lithy Est.'
+    en: 'Abdullah Mehdar Ibrahim Al Lithy'
   },
   heroTitle: {
     ar: 'رواد حلول التصوير والطباعة الاحترافية',

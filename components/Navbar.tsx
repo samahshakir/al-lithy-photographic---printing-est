@@ -12,8 +12,8 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto glass rounded-2xl px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <img src="/llz.png" alt="Company Logo" className="w-10 h-10 rounded-lg shadow-lg shadow-indigo-500/20" />
-          <div className="hidden md:block">
-            <h1 className="text-sm font-bold leading-tight uppercase tracking-wider">
+          <div className="block">
+            <h1 className="text-xs md:text-sm font-bold leading-tight uppercase tracking-wider">
               {UI_STRINGS.companyName[language]}
             </h1>
           </div>
