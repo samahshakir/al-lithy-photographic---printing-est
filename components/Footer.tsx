@@ -41,6 +41,9 @@ const Footer: React.FC = () => {
           <div className="flex gap-8">
             <a href="#" className="hover:text-white">{language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}</a>
             <a href="#" className="hover:text-white">{language === 'ar' ? 'الشروط والأحكام' : 'Terms of Service'}</a>
+            <a href="/manage" className="hover:text-white opacity-50 hover:opacity-100 transition-opacity">
+              {language === 'ar' ? 'إدارة' : 'Admin'}
+            </a>
           </div>
         </div>
       </div>

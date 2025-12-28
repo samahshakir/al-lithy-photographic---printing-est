@@ -15,7 +15,7 @@ const AdminPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 selection:bg-indigo-500 selection:text-white">
+    <div className="min-h-screen bg-slate-950 text-white selection:bg-indigo-500 selection:text-white">
       {/* Animated background */}
       <div className="fixed inset-0 pointer-events-none -z-10">
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-900/10 blur-[120px] rounded-full animate-float" />
@@ -23,8 +23,8 @@ const AdminPage: React.FC = () => {
       </div>
 
       {/* Header */}
-      <div className="p-6 flex items-center justify-between max-w-7xl mx-auto">
-        <h1 className="text-2xl font-bold">
+      <div className="p-4 md:p-6 flex items-center justify-between max-w-7xl mx-auto">
+        <h1 className="text-xl md:text-2xl font-bold text-white">
           {language === 'ar' ? 'لوحة التحكم' : 'Admin Panel'}
         </h1>
         <button

@@ -21,8 +21,8 @@ const AdminLogin: React.FC = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto px-6 py-20">
-      <div className="glass-dark rounded-3xl p-8 border border-white/10">
+    <div className="max-w-md mx-auto px-4 md:px-6 py-12 md:py-20">
+      <div className="glass-dark rounded-3xl p-6 md:p-8 border border-white/10">
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-indigo-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
             <svg className="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
