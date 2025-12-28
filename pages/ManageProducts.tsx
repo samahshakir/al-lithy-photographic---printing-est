@@ -77,37 +77,37 @@ const ManageProducts: React.FC = () => {
       </div>
 
       {/* Header */}
-      <div className="p-6 border-b border-white/10">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <h1 className="text-2xl font-bold">
+      <div className="p-4 md:p-6 border-b border-white/10">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <h1 className="text-lg md:text-2xl font-bold">
             {language === 'ar' ? 'إدارة المنتجات' : 'Manage Products'}
           </h1>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 md:gap-4 w-full sm:w-auto">
             <button
               onClick={() => navigate('/add')}
-              className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-xl text-sm transition-all"
+              className="flex-1 sm:flex-none px-3 md:px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-lg md:rounded-xl text-xs md:text-sm transition-all"
             >
               {language === 'ar' ? '+ إضافة منتج' : '+ Add Product'}
             </button>
             <button
               onClick={() => navigate('/')}
-              className="px-4 py-2 glass rounded-xl text-sm hover:bg-white/10 transition-all"
+              className="flex-1 sm:flex-none px-3 md:px-4 py-2 glass rounded-lg md:rounded-xl text-xs md:text-sm hover:bg-white/10 transition-all"
             >
               {language === 'ar' ? 'الرئيسية' : 'Home'}
             </button>
             <button
               onClick={handleLogout}
-              className="px-4 py-2 text-red-400 hover:text-red-300 text-sm transition-all"
+              className="px-3 md:px-4 py-2 text-red-400 hover:text-red-300 text-xs md:text-sm transition-all"
             >
-              {language === 'ar' ? 'تسجيل الخروج' : 'Logout'}
+              {language === 'ar' ? 'خروج' : 'Logout'}
             </button>
           </div>
         </div>
       </div>
 
       {/* Products Grid */}
-      <div className="max-w-7xl mx-auto p-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="max-w-7xl mx-auto p-4 md:p-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {products.map((product) => {
             const primaryImage = product.images?.[0] || product.image_url || '';
             return (
@@ -131,38 +131,38 @@ const ManageProducts: React.FC = () => {
                     </div>
                   )}
                 </div>
-                <div className="p-4">
+                <div className="p-3 md:p-4">
                   <div className="flex items-start justify-between mb-2">
                     <div className="flex-1">
-                      <h3 className="font-bold text-sm">
+                      <h3 className="font-bold text-xs md:text-sm">
                         {language === 'ar' ? product.title_ar : product.title_en}
                       </h3>
                       {product.category && (
-                        <span className="inline-block mt-1 px-2 py-0.5 text-xs bg-indigo-600/20 text-indigo-300 rounded-full">
+                        <span className="inline-block mt-1 px-1.5 md:px-2 py-0.5 text-xs bg-indigo-600/20 text-indigo-300 rounded-full">
                           {product.category}
                         </span>
                       )}
                     </div>
-                    <span className="text-xl">{product.icon}</span>
+                    <span className="text-lg md:text-xl">{product.icon}</span>
                   </div>
-                  <p className="text-slate-400 text-xs mb-4 line-clamp-2">
+                  <p className="text-slate-400 text-xs mb-3 md:mb-4 line-clamp-2">
                     {language === 'ar' ? product.description_ar : product.description_en}
                   </p>
                   {product.price && (
-                    <p className="text-green-400 font-semibold mb-4">
+                    <p className="text-green-400 font-semibold mb-3 md:mb-4 text-sm md:text-base">
                       {product.price} {language === 'ar' ? 'ر.س' : 'SAR'}
                     </p>
                   )}
                   <div className="flex gap-2">
                     <button
                       onClick={() => navigate(`/edit/${product.id}`)}
-                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg text-sm font-semibold transition-all"
+                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all"
                     >
                       {language === 'ar' ? 'تعديل' : 'Edit'}
                     </button>
                     <button
                       onClick={() => handleDelete(product.id)}
-                      className="flex-1 bg-red-600/20 hover:bg-red-600/30 text-red-400 py-2 rounded-lg text-sm font-semibold transition-all"
+                      className="flex-1 bg-red-600/20 hover:bg-red-600/30 text-red-400 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all"
                     >
                       {language === 'ar' ? 'حذف' : 'Delete'}
                     </button>

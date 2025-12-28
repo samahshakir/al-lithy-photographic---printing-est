@@ -111,32 +111,32 @@ const ProductForm: React.FC<ProductFormProps> = ({ onSuccess }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
         {/* Arabic Title */}
         <div>
-          <label className="block text-sm font-medium mb-2">
+          <label className="block text-xs md:text-sm font-medium mb-1.5 md:mb-2">
             {language === 'ar' ? 'الاسم بالعربية' : 'Name (Arabic)'}
           </label>
           <input
             type="text"
             value={formData.title_ar}
             onChange={(e) => setFormData(prev => ({ ...prev, title_ar: e.target.value }))}
-            className="w-full px-4 py-3 glass rounded-xl border border-white/10 focus:border-indigo-500 focus:outline-none transition-all"
+            className="w-full px-3 md:px-4 py-2 md:py-3 glass rounded-lg md:rounded-xl border border-white/10 focus:border-indigo-500 focus:outline-none transition-all text-sm md:text-base"
             required
           />
         </div>
 
         {/* English Title */}
         <div>
-          <label className="block text-sm font-medium mb-2">
+          <label className="block text-xs md:text-sm font-medium mb-1.5 md:mb-2">
             {language === 'ar' ? 'الاسم بالإنجليزية' : 'Name (English)'}
           </label>
           <input
             type="text"
             value={formData.title_en}
             onChange={(e) => setFormData(prev => ({ ...prev, title_en: e.target.value }))}
-            className="w-full px-4 py-3 glass rounded-xl border border-white/10 focus:border-indigo-500 focus:outline-none transition-all"
+            className="w-full px-3 md:px-4 py-2 md:py-3 glass rounded-lg md:rounded-xl border border-white/10 focus:border-indigo-500 focus:outline-none transition-all text-sm md:text-base"
             required
           />
         </div>
@@ -144,13 +144,13 @@ const ProductForm: React.FC<ProductFormProps> = ({ onSuccess }) => {
 
       {/* Arabic Description */}
       <div>
-        <label className="block text-sm font-medium mb-2">
+        <label className="block text-xs md:text-sm font-medium mb-1.5 md:mb-2">
           {language === 'ar' ? 'الوصف بالعربية' : 'Description (Arabic)'}
         </label>
         <textarea
           value={formData.description_ar}
           onChange={(e) => setFormData(prev => ({ ...prev, description_ar: e.target.value }))}
-          className="w-full px-4 py-3 glass rounded-xl border border-white/10 focus:border-indigo-500 focus:outline-none transition-all"
+          className="w-full px-3 md:px-4 py-2 md:py-3 glass rounded-lg md:rounded-xl border border-white/10 focus:border-indigo-500 focus:outline-none transition-all text-sm md:text-base"
           rows={3}
           required
         />
@@ -158,22 +158,22 @@ const ProductForm: React.FC<ProductFormProps> = ({ onSuccess }) => {
 
       {/* English Description */}
       <div>
-        <label className="block text-sm font-medium mb-2">
+        <label className="block text-xs md:text-sm font-medium mb-1.5 md:mb-2">
           {language === 'ar' ? 'الوصف بالإنجليزية' : 'Description (English)'}
         </label>
         <textarea
           value={formData.description_en}
           onChange={(e) => setFormData(prev => ({ ...prev, description_en: e.target.value }))}
-          className="w-full px-4 py-3 glass rounded-xl border border-white/10 focus:border-indigo-500 focus:outline-none transition-all"
+          className="w-full px-3 md:px-4 py-2 md:py-3 glass rounded-lg md:rounded-xl border border-white/10 focus:border-indigo-500 focus:outline-none transition-all text-sm md:text-base"
           rows={3}
           required
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
         {/* Price (Optional) */}
         <div>
-          <label className="block text-sm font-medium mb-2">
+          <label className="block text-xs md:text-sm font-medium mb-1.5 md:mb-2">
             {language === 'ar' ? 'السعر (اختياري)' : 'Price (Optional)'}
           </label>
           <input
@@ -181,35 +181,35 @@ const ProductForm: React.FC<ProductFormProps> = ({ onSuccess }) => {
             step="0.01"
             value={formData.price}
             onChange={(e) => setFormData(prev => ({ ...prev, price: e.target.value }))}
-            className="w-full px-4 py-3 glass rounded-xl border border-white/10 focus:border-indigo-500 focus:outline-none transition-all"
+            className="w-full px-3 md:px-4 py-2 md:py-3 glass rounded-lg md:rounded-xl border border-white/10 focus:border-indigo-500 focus:outline-none transition-all text-sm md:text-base"
             placeholder="0.00"
           />
         </div>
 
         {/* Category (Optional) */}
         <div>
-          <label className="block text-sm font-medium mb-2">
+          <label className="block text-xs md:text-sm font-medium mb-1.5 md:mb-2">
             {language === 'ar' ? 'الفئة (اختياري)' : 'Category (Optional)'}
           </label>
           <input
             type="text"
             value={formData.category}
             onChange={(e) => setFormData(prev => ({ ...prev, category: e.target.value }))}
-            className="w-full px-4 py-3 glass rounded-xl border border-white/10 focus:border-indigo-500 focus:outline-none transition-all"
+            className="w-full px-3 md:px-4 py-2 md:py-3 glass rounded-lg md:rounded-xl border border-white/10 focus:border-indigo-500 focus:outline-none transition-all text-sm md:text-base"
             placeholder={language === 'ar' ? 'مثال: طباعة' : 'e.g., printing'}
           />
         </div>
 
         {/* Icon */}
         <div>
-          <label className="block text-sm font-medium mb-2">
+          <label className="block text-xs md:text-sm font-medium mb-1.5 md:mb-2">
             {language === 'ar' ? 'الأيقونة (إيموجي)' : 'Icon (Emoji)'}
           </label>
           <input
             type="text"
             value={formData.icon}
             onChange={(e) => setFormData(prev => ({ ...prev, icon: e.target.value }))}
-            className="w-full px-4 py-3 glass rounded-xl border border-white/10 focus:border-indigo-500 focus:outline-none transition-all text-center text-2xl"
+            className="w-full px-3 md:px-4 py-2 md:py-3 glass rounded-lg md:rounded-xl border border-white/10 focus:border-indigo-500 focus:outline-none transition-all text-center text-xl md:text-2xl"
             maxLength={2}
           />
         </div>
@@ -217,7 +217,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ onSuccess }) => {
 
       {/* Multiple Image Upload */}
       <div>
-        <label className="block text-sm font-medium mb-2">
+        <label className="block text-xs md:text-sm font-medium mb-1.5 md:mb-2">
           {language === 'ar' ? 'صور المنتج (حتى 4 صور)' : 'Product Images (up to 4)'}
         </label>
         <div className="relative">
@@ -232,25 +232,25 @@ const ProductForm: React.FC<ProductFormProps> = ({ onSuccess }) => {
           />
           <label
             htmlFor="image-upload"
-            className="block w-full px-4 py-8 glass rounded-xl border-2 border-dashed border-white/10 hover:border-indigo-500/50 cursor-pointer transition-all"
+            className="block w-full px-3 md:px-4 py-6 md:py-8 glass rounded-lg md:rounded-xl border-2 border-dashed border-white/10 hover:border-indigo-500/50 cursor-pointer transition-all"
           >
             {imagePreviews.length > 0 ? (
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
                 {imagePreviews.map((preview, idx) => (
                   <div key={idx} className="relative">
-                    <img src={preview} alt={`Preview ${idx + 1}`} className="w-full h-32 object-cover rounded-lg" />
-                    <div className="absolute top-2 left-2 bg-indigo-600 text-white text-xs px-2 py-1 rounded-full">
+                    <img src={preview} alt={`Preview ${idx + 1}`} className="w-full h-24 md:h-32 object-cover rounded-lg" />
+                    <div className="absolute top-1.5 left-1.5 md:top-2 md:left-2 bg-indigo-600 text-white text-xs px-1.5 md:px-2 py-0.5 md:py-1 rounded-full">
                       {idx === 0 ? (language === 'ar' ? 'رئيسية' : 'Primary') : `${idx + 1}`}
                     </div>
                   </div>
                 ))}
               </div>
             ) : (
-              <div className="text-center space-y-2">
-                <svg className="w-12 h-12 mx-auto text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="text-center space-y-1.5 md:space-y-2">
+                <svg className="w-10 h-10 md:w-12 md:h-12 mx-auto text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-                <p className="text-slate-400">
+                <p className="text-slate-400 text-sm md:text-base">
                   {language === 'ar' ? 'اضغط لاختيار صور (حتى 4)' : 'Click to select images (up to 4)'}
                 </p>
                 <p className="text-slate-500 text-xs">
@@ -266,7 +266,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ onSuccess }) => {
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-600/50 text-white py-3 rounded-xl font-semibold transition-all"
+        className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-600/50 text-white py-2.5 md:py-3 rounded-lg md:rounded-xl font-semibold transition-all text-sm md:text-base"
       >
         {loading
           ? (language === 'ar' ? 'جاري الإضافة...' : 'Adding...')
