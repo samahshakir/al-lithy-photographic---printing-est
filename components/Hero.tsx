@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from './LanguageContext';
 import { UI_STRINGS } from '../constants';
 
@@ -24,9 +25,9 @@ const Hero: React.FC = () => {
             {UI_STRINGS.heroSubtitle[language]}
           </p>
           <div className="flex flex-wrap justify-center lg:justify-start gap-3 pt-2">
-            <a href="#products" className="px-6 md:px-10 py-3 md:py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl md:rounded-2xl text-sm md:text-base font-bold shadow-[0_0_30px_rgba(79,70,229,0.3)] transition-all hover:-translate-y-1 active:scale-95">
+            <Link to="/products" className="px-6 md:px-10 py-3 md:py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl md:rounded-2xl text-sm md:text-base font-bold shadow-[0_0_30px_rgba(79,70,229,0.3)] transition-all hover:-translate-y-1 active:scale-95">
               {UI_STRINGS.exploreProducts[language]}
-            </a>
+            </Link>
             <a href="#contact" className="px-6 md:px-10 py-3 md:py-4 glass hover:bg-white/10 text-white rounded-xl md:rounded-2xl text-sm md:text-base font-bold border border-white/20 transition-all active:scale-95">
               {UI_STRINGS.contactUs[language]}
             </a>

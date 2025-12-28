@@ -83,7 +83,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <div className="font-bold text-sm md:text-base">{language === 'ar' ? 'الهاتف' : 'Phone'}</div>
-                  <div className="text-slate-400 text-xs md:text-sm" dir="ltr">+966 50 000 0000</div>
+                  <div className="text-slate-400 text-xs md:text-sm" dir="ltr">+966 531555016</div>
                 </div>
               </div>
               <div className="flex items-start gap-4">

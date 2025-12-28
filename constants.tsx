@@ -2,10 +2,10 @@
 import { NavItem, Product, Translation } from './types';
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: { ar: 'الرئيسية', en: 'Home' }, href: '#home' },
-  { label: { ar: 'من نحن', en: 'About' }, href: '#about' },
-  { label: { ar: 'منتجاتنا', en: 'Products' }, href: '#products' },
-  { label: { ar: 'تواصل معنا', en: 'Contact' }, href: '#contact' },
+  { label: { ar: 'الرئيسية', en: 'Home' }, href: '/' },
+  { label: { ar: 'من نحن', en: 'About' }, href: '/#about' },
+  { label: { ar: 'منتجاتنا', en: 'Products' }, href: '/products' },
+  { label: { ar: 'تواصل معنا', en: 'Contact' }, href: '/#contact' },
 ];
 
 export const PRODUCTS: Product[] = [
@@ -131,5 +131,84 @@ export const UI_STRINGS: Translation = {
   footerRights: {
     ar: 'جميع الحقوق محفوظة © ٢٠٢٤',
     en: 'All Rights Reserved © 2024'
+  },
+  cartTitle: {
+    ar: 'سلة الطلبات',
+    en: 'Your Quote'
+  },
+  cartEmpty: {
+    ar: 'السلة فارغة',
+    en: 'Cart is empty'
+  },
+  addToCart: {
+    ar: 'أضف للسلة',
+    en: 'Add to Cart'
+  },
+  sendWhatsApp: {
+    ar: 'إرسال الطلب عبر واتساب',
+    en: 'Send Quote via WhatsApp'
+  },
+  clearCart: {
+    ar: 'إفراغ السلة',
+    en: 'Clear Cart'
+  },
+  quantity: {
+    ar: 'الكمية',
+    en: 'Quantity'
+  },
+  // Explore page
+  explorePage: {
+    ar: 'استكشف جميع المنتجات',
+    en: 'Explore All Products'
+  },
+  searchPlaceholder: {
+    ar: 'ابحث عن المنتجات...',
+    en: 'Search products...'
+  },
+  allCategories: {
+    ar: 'جميع الفئات',
+    en: 'All Categories'
+  },
+  noProductsFound: {
+    ar: 'لم يتم العثور على منتجات',
+    en: 'No products found'
+  },
+  searchTryDifferent: {
+    ar: 'جرب البحث بكلمات مختلفة أو تغيير الفئة',
+    en: 'Try searching with different keywords or change the category'
+  },
+  // Product detail
+  backToProducts: {
+    ar: 'العودة إلى المنتجات',
+    en: 'Back to Products'
+  },
+  productDetails: {
+    ar: 'تفاصيل المنتج',
+    en: 'Product Details'
+  },
+  priceOnRequest: {
+    ar: 'السعر عند الاستفسار',
+    en: 'Price on Request'
+  },
+  loading: {
+    ar: 'جاري التحميل...',
+    en: 'Loading...'
+  },
+  productNotFound: {
+    ar: 'المنتج غير موجود',
+    en: 'Product Not Found'
+  },
+  // Cart
+  total: {
+    ar: 'الإجمالي',
+    en: 'Total'
+  },
+  pricingConfirmation: {
+    ar: 'منتج يتطلب تأكيد السعر - اتصل بنا',
+    en: 'require pricing confirmation - Contact us'
+  },
+  addedToCart: {
+    ar: 'تمت الإضافة إلى السلة!',
+    en: 'Added to cart!'
   }
 };

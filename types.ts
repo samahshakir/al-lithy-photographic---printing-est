@@ -8,10 +8,22 @@ export interface NavItem {
 
 export interface Product {
   id: string;
-  title: { ar: string; en: string };
-  description: { ar: string; en: string };
+  title_ar: string;
+  title_en: string;
+  description_ar: string;
+  description_en: string;
+  price?: number;
+  category?: string;
   icon: string;
-  image: string;
+  images: string[];  // Array of image URLs (up to 4)
+  image_url?: string;  // Keep for backward compatibility
+  active?: boolean;
+  created_at?: string;
+}
+
+export interface CartItem {
+  product: Product;
+  quantity: number;
 }
 
 export interface Translation {
