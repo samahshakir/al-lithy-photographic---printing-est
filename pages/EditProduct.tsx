@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useLanguage } from '../components/LanguageContext';
 import { useAuth } from '../components/AuthContext';
+import { useModal } from '../components/modal/ModalContext';
 import { productsService } from '../services/productsService';
 import { uploadMultipleImages } from '../services/imgbbService';
 import { Product } from '../types';
@@ -10,6 +11,7 @@ const EditProduct: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { language } = useLanguage();
   const { isAuthenticated, logout } = useAuth();
+  const { showAlert } = useModal();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [loadingProduct, setLoadingProduct] = useState(true);
@@ -61,7 +63,10 @@ const EditProduct: React.FC = () => {
       }
     } catch (error) {
       console.error('Error fetching product:', error);
-      alert(language === 'ar' ? 'حدث خطأ في تحميل المنتج' : 'Error loading product');
+      showAlert(
+        language === 'ar' ? 'حدث خطأ في تحميل المنتج' : 'Error loading product',
+        'error'
+      );
       navigate('/manage');
     } finally {
       setLoadingProduct(false);
@@ -73,7 +78,10 @@ const EditProduct: React.FC = () => {
     const totalImages = formData.existingImages.length + files.length;
 
     if (totalImages > 4) {
-      alert(language === 'ar' ? 'يمكنك تحميل 4 صور كحد أقصى' : 'You can upload maximum 4 images');
+      showAlert(
+        language === 'ar' ? 'يمكنك تحميل 4 صور كحد أقصى' : 'You can upload maximum 4 images',
+        'error'
+      );
       return;
     }
 
@@ -126,12 +134,18 @@ const EditProduct: React.FC = () => {
         images: allImages
       });
 
-      alert(language === 'ar' ? 'تم التحديث بنجاح!' : 'Updated successfully!');
+      showAlert(
+        language === 'ar' ? 'تم التحديث بنجاح!' : 'Updated successfully!',
+        'success'
+      );
       navigate('/manage');
 
     } catch (error) {
       console.error('Error updating product:', error);
-      alert(language === 'ar' ? 'حدث خطأ أثناء التحديث' : 'Error updating product');
+      showAlert(
+        language === 'ar' ? 'حدث خطأ أثناء التحديث' : 'Error updating product',
+        'error'
+      );
     } finally {
       setLoading(false);
     }

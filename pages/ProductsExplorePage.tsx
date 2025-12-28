@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../components/LanguageContext';
 import { useCart } from '../components/CartContext';
+import { useModal } from '../components/modal/ModalContext';
 import { productsService } from '../services/productsService';
 import { Product } from '../types';
 import { UI_STRINGS } from '../constants';
@@ -10,6 +11,7 @@ import Navbar from '../components/Navbar';
 const ProductsExplorePage: React.FC = () => {
   const { language } = useLanguage();
   const { addToCart } = useCart();
+  const { showAlert } = useModal();
   const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
@@ -76,8 +78,7 @@ const ProductsExplorePage: React.FC = () => {
 
   const handleAddToCart = (product: Product) => {
     addToCart(product);
-    // Brief success notification
-    alert(UI_STRINGS.addedToCart[language]);
+    showAlert(UI_STRINGS.addedToCart[language], 'success');
   };
 
   const handleCategoryClick = (category: string) => {

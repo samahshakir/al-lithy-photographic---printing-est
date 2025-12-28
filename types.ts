@@ -32,3 +32,26 @@ export interface Translation {
     en: string;
   };
 }
+
+export type ModalType = 'alert' | 'confirm';
+
+export type AlertVariant = 'info' | 'success' | 'error';
+
+export interface AlertModalConfig {
+  type: 'alert';
+  message: string;
+  variant?: AlertVariant;
+  onClose?: () => void;
+}
+
+export interface ConfirmModalConfig {
+  type: 'confirm';
+  message: string;
+  confirmText?: string;
+  cancelText?: string;
+  variant?: 'danger' | 'warning' | 'info';
+  onConfirm: () => void;
+  onCancel?: () => void;
+}
+
+export type ModalConfig = AlertModalConfig | ConfirmModalConfig;

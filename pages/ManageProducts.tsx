@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../components/LanguageContext';
 import { useAuth } from '../components/AuthContext';
+import { useModal } from '../components/modal/ModalContext';
 import { productsService } from '../services/productsService';
 import { Product } from '../types';
 
 const ManageProducts: React.FC = () => {
   const { language } = useLanguage();
   const { isAuthenticated, logout } = useAuth();
+  const { showAlert, showConfirm } = useModal();
   const navigate = useNavigate();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -34,16 +36,22 @@ const ManageProducts: React.FC = () => {
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm(language === 'ar' ? 'هل أنت متأكد من الحذف؟' : 'Are you sure you want to delete?')) {
-      return;
-    }
+    const confirmed = await showConfirm(
+      language === 'ar' ? 'هل أنت متأكد من الحذف؟' : 'Are you sure you want to delete?',
+      { variant: 'danger' }
+    );
+
+    if (!confirmed) return;
 
     try {
       await productsService.deleteProduct(id);
       fetchProducts();
     } catch (error) {
       console.error('Error deleting product:', error);
-      alert(language === 'ar' ? 'حدث خطأ أثناء الحذف' : 'Error deleting product');
+      showAlert(
+        language === 'ar' ? 'حدث خطأ أثناء الحذف' : 'Error deleting product',
+        'error'
+      );
     }
   };
 

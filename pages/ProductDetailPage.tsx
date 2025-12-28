@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../components/LanguageContext';
 import { useCart } from '../components/CartContext';
+import { useModal } from '../components/modal/ModalContext';
 import { productsService } from '../services/productsService';
 import ProductImageCarousel from '../components/ProductImageCarousel';
 import { Product } from '../types';
@@ -12,6 +13,7 @@ const ProductDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { language } = useLanguage();
   const { addToCart } = useCart();
+  const { showAlert } = useModal();
   const navigate = useNavigate();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
@@ -49,8 +51,7 @@ const ProductDetailPage: React.FC = () => {
   const handleAddToCart = () => {
     if (product) {
       addToCart(product);
-      // Show a brief success notification (optional)
-      alert(UI_STRINGS.addedToCart[language]);
+      showAlert(UI_STRINGS.addedToCart[language], 'success');
     }
   };
 

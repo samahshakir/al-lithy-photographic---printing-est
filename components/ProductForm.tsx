@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from './LanguageContext';
+import { useModal } from './modal/ModalContext';
 import { productsService } from '../services/productsService';
 import { uploadMultipleImages } from '../services/imgbbService';
 
@@ -9,6 +10,7 @@ interface ProductFormProps {
 
 const ProductForm: React.FC<ProductFormProps> = ({ onSuccess }) => {
   const { language } = useLanguage();
+  const { showAlert } = useModal();
   const [loading, setLoading] = useState(false);
   const [imagePreviews, setImagePreviews] = useState<string[]>([]);
   const [formData, setFormData] = useState({
@@ -25,7 +27,10 @@ const ProductForm: React.FC<ProductFormProps> = ({ onSuccess }) => {
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
     if (files.length > 4) {
-      alert(language === 'ar' ? 'يمكنك تحميل 4 صور كحد أقصى' : 'You can upload maximum 4 images');
+      showAlert(
+        language === 'ar' ? 'يمكنك تحميل 4 صور كحد أقصى' : 'You can upload maximum 4 images',
+        'error'
+      );
       return;
     }
 
@@ -96,9 +101,10 @@ const ProductForm: React.FC<ProductFormProps> = ({ onSuccess }) => {
 
     } catch (error) {
       console.error('Error adding product:', error);
-      alert(language === 'ar'
-        ? 'حدث خطأ أثناء إضافة المنتج'
-        : 'Error adding product');
+      showAlert(
+        language === 'ar' ? 'حدث خطأ أثناء إضافة المنتج' : 'Error adding product',
+        'error'
+      );
     } finally {
       setLoading(false);
     }

@@ -79,7 +79,7 @@ const Products: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {products.map((product, idx) => {
             const images = product.images || (product.image_url ? [product.image_url] : []);
             const primaryImage = images[0] || '';
@@ -115,14 +115,16 @@ const Products: React.FC = () => {
                 </div>
               </div>
               <div className="p-5 lg:p-7 space-y-3 lg:space-y-4 flex-grow flex flex-col">
+                {/* Title */}
+                <h3 className="text-sm md:text-base font-bold text-white">
+                  {language === 'ar' ? product.title_ar : product.title_en}
+                </h3>
+
                 {product.category && (
                   <span className="inline-block self-start px-2 py-1 text-xs bg-indigo-600/20 text-indigo-300 rounded-full">
                     {product.category}
                   </span>
                 )}
-                <p className="text-slate-400 text-xs md:text-sm leading-relaxed flex-grow">
-                  {language === 'ar' ? product.description_ar : product.description_en}
-                </p>
                 {showPrice && (
                   <div className="text-lg font-bold text-indigo-400">
                     {product.price} {language === 'ar' ? 'ر.س' : 'SAR'}
